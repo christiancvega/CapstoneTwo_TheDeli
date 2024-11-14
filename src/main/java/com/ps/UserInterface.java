@@ -18,6 +18,15 @@ public class UserInterface {
     private static String name;
     public static Order order;
 
+    private static final String RESET = "\033[0m";
+    private static final String BOLD = "\033[1m";
+    private static final String BLUE = "\033[34m";
+    private static final String GREEN = "\033[32m";
+    private static final String CYAN = "\033[36m";
+    private static final String RED = "\033[31m";
+    private static final String YELLOW = "\033[33m";
+
+
     public static void display() {
         showMainMenu();
     }
@@ -25,22 +34,23 @@ public class UserInterface {
     public static void showMainMenu() {
         int mainMenuCommand;
         do {
-            System.out.println("=======================================");
-            System.out.println("          Welcome to Deli-cious!       ");
-            System.out.println("=======================================");
-            System.out.println("Would you like to place an order?");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
+            System.out.println(CYAN + "==============================================");
+            System.out.println("          🥪    Welcome to Deli-cious!   🥪  ");
+            System.out.println("==============================================");
+            System.out.println(RESET);
+            System.out.println(YELLOW + "       👨‍🍳  Would you like to place an order?  👩‍🍳");
+            System.out.println("                 1. Yes");
+            System.out.println("                 2. No");
             mainMenuCommand = commandScanner.nextInt();
             switch (mainMenuCommand) {
                 case 1:
                     processStartAnOrder();
                     break;
                 case 2:
-                    System.out.println("Exiting...Goodbye!");
+                    System.out.println(GREEN + "Exiting...Goodbye!" + RESET);
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                    System.out.println(BLUE + "Invalid choice. Please enter 1 or 2." + RESET);
             }
         } while (mainMenuCommand != 2);
     }
@@ -48,13 +58,13 @@ public class UserInterface {
     private static void processStartAnOrder() {
         int startCommand = 0;
         do {
-            System.out.println("\n=======================================");
-            System.out.println("      What would you like to order?");
-            System.out.println("=======================================");
-            System.out.println("1. Add a Sandwich");
-            System.out.println("2. Add a Drink");
-            System.out.println("3. Add Chips");
-            System.out.println("4. Finish the Order");
+            System.out.println(CYAN + "\n=============================================");
+            System.out.println("        🍽️  What would you like to order? 🍽️");
+            System.out.println("=============================================" + RESET);
+            System.out.println(YELLOW + "    1. 🥪 Add a Sandwich");
+            System.out.println("    2. 🥤 Add a Drink");
+            System.out.println("    3. 🍟 Add Chips");
+            System.out.println("    4. ✅ Finish the Order");
             startCommand = commandScanner.nextInt();
             switch (startCommand) {
                 case 1:
@@ -70,7 +80,7 @@ public class UserInterface {
                     processFinishTheOrder();
                     break;
                 default:
-                    System.out.println("Invalid choice. Please select from the available options.");
+                    System.out.println(BLUE + "Invalid choice. Please select from the available options." + RESET);
             }
         } while (startCommand != 4);
     }
@@ -79,7 +89,12 @@ public class UserInterface {
         int sandwichCommand = 0;
         List<Topping> toppingChoices = new ArrayList<>();
         do {
-            System.out.println("Choose sandwich size: 4\" ($5.50), 8\" ($7.00), 12\" ($8.50)");
+            System.out.println(CYAN + "\n=============================================");
+            System.out.println("  🤔 How hungry are you today? Choose a size! 🍽️");
+            System.out.println("=============================================" + RESET);
+            System.out.println(YELLOW + "    1. 🌱 Small - 4\" ($5.50)");
+            System.out.println("    2. 🥪 Medium - 8\" ($7.00)");
+            System.out.println("    3. 🍔 Large - 12\" ($8.50)");
             int size = inputScanner.nextInt();
             inputScanner.nextLine();
 
@@ -93,23 +108,33 @@ public class UserInterface {
             }
 
             if (sandwichSize == null) {
-                System.out.println("Invalid size. Please select 4, 8, or 12 inches.");
+                System.out.println(BLUE + "Invalid size. Please select 4, 8, or 12 inches." + RESET);
                 continue;
             }
 
-            System.out.println("Choose bread type: White, Wheat, Rye, Wrap");
-            String breadType = inputScanner.nextLine().toUpperCase();
+            System.out.println(CYAN + "\n=============================================");
+            System.out.println("   🌾 What kind of bread would you like today? 🍞");
+            System.out.println("=============================================" + RESET);
+            System.out.println(YELLOW + "    1. 🍞 White - Classic choice!");
+            System.out.println("    2. 🌾 Wheat - A healthy option!");
+            System.out.println("    3. 🌿 Rye - For the adventurous eater!");
+            System.out.println("    4. 🌯 Wrap - For something light and fresh!");            String breadType = inputScanner.nextLine().toUpperCase();
 
-            System.out.println("Do you want it toasted? 1. Yes 2. No");
-            int toastedChoiceInput = inputScanner.nextInt();
+            System.out.println(CYAN + "\n===============================================");
+            System.out.println("   🔥 Would you like your sandwich toasted? 🥪");
+            System.out.println("===============================================" + RESET);
+            System.out.println(YELLOW + "    1. Yes, make it crispy! 🔥");
+            System.out.println("    2. No, keep it soft and fresh! 🍞");            int toastedChoiceInput = inputScanner.nextInt();
             boolean toastedChoice = toastedChoiceInput == 1;
             inputScanner.nextLine();
 
-            System.out.println("\n----------------------------");
-            System.out.println("Choose your toppings (separate by commas):");
-            System.out.println("----------------------------\n");
+            System.out.println("\n===========================================");
+            System.out.println(CYAN + "🥗 What toppings would you like to add? 🧀");
+            System.out.println("===========================================" + RESET);
+            System.out.println(YELLOW + "    Pick your favorites, separate by commas! 🍅🥬🍔");
+            System.out.println("===========================================\n");
 
-            System.out.println("Meats:");
+            System.out.println(CYAN + "Meats:" + RESET);
             for (Topping topping : PremiumTopping.getPremiumToppings()) {
                 if (topping.getType().equals("Meat")) {
                     System.out.println(topping.getName());
@@ -117,7 +142,7 @@ public class UserInterface {
             }
 
             System.out.println("\n----------------------------");
-            System.out.println("Cheeses:");
+            System.out.println(CYAN + "Cheeses:" + RESET);
             for (Topping topping : PremiumTopping.getPremiumToppings()) {
                 if (topping.getType().equals("Cheese")) {
                     System.out.println(topping.getName());
@@ -125,7 +150,7 @@ public class UserInterface {
             }
 
             System.out.println("\n----------------------------");
-            System.out.println("Veggies:");
+            System.out.println(CYAN + "Veggies:" + RESET);
             for (Topping topping : RegularTopping.getRegularToppings()) {
                 if (topping.getType().equals("Veggie")) {
                     System.out.println(topping.getName());
@@ -133,15 +158,18 @@ public class UserInterface {
             }
 
             System.out.println("\n----------------------------");
-            System.out.println("Sauces:");
+            System.out.println(CYAN + "Sauces:" + RESET);
             for (Topping topping : RegularTopping.getRegularToppings()) {
                 if (topping.getType().equals("Sauce")) {
                     System.out.println(topping.getName());
                 }
             }
 
-            System.out.println("\n----------------------------");
-            System.out.println("Enter your toppings (separate by commas):");
+            System.out.println("\n=====================================");
+            System.out.println(CYAN + "🥒 Ready to customize your sandwich? 🌶️");
+            System.out.println("=====================================" + RESET);
+            System.out.println(YELLOW + "    Enter your topping choices below (separate by commas)!");
+            System.out.println("=====================================\n");
             String inputToppings = inputScanner.nextLine().toLowerCase();
 
             String[] selectedToppings = inputToppings.split(",");
@@ -152,15 +180,25 @@ public class UserInterface {
                     toppingChoices.add(topping);
                     System.out.println(topping.getName() + " added.");
                 } else {
-                    System.out.println("Invalid topping: " + toppingName);
+                    System.out.println(BLUE + "Invalid topping: " + toppingName + RESET);
                 }
             }
 
-            System.out.println("\nWould you like extra meat? 1. Yes 2. No");
+            System.out.println("\n=====================================");
+            System.out.println(CYAN + "🍖 Craving extra meat today? 🥩");
+            System.out.println("=====================================" + RESET);
+            System.out.println(YELLOW + "1. Yes, give me more meat!");
+            System.out.println("2. No, I'm good with what I have.");
+            System.out.println("=====================================");
             boolean extraMeatChoice = inputScanner.nextInt() == 1;
             inputScanner.nextLine();
 
-            System.out.println("Would you like extra cheese? 1. Yes 2. No");
+            System.out.println("\n=====================================");
+            System.out.println(CYAN + "🧀 Time for some extra cheese? 🧀");
+            System.out.println("=====================================" + RESET);
+            System.out.println(YELLOW + "1. Yes, more cheese, please!");
+            System.out.println("2. No, I’m keeping it cheesy enough.");
+            System.out.println("=====================================");
             boolean extraCheeseChoice = inputScanner.nextInt() == 1;
             inputScanner.nextLine();
 
@@ -168,10 +206,13 @@ public class UserInterface {
             sandwiches.add(sandwich);
 
             totalPrice += sandwich.calculatePrice();
-            System.out.println("Sandwich added. Total: $" + totalPrice);
+            System.out.println(GREEN + "🍞 Your delicious sandwich has been added! 🥪");
+            System.out.println("Total for this one: $" + totalPrice + RESET);
 
             System.out.println("\n----------------------------");
-            System.out.println("Add another sandwich? 1. Yes 2. No");
+            System.out.println(GREEN + "🍽️ Hungry for more? Add another tasty sandwich!" + RESET);
+            System.out.println("1. Yes, please! 😋");
+            System.out.println("2. No, I'm full! 😌");
             sandwichCommand = inputScanner.nextInt();
             inputScanner.nextLine();
         } while (sandwichCommand != 2);
@@ -180,22 +221,23 @@ public class UserInterface {
     private static void processAddADrink() {
         int sizeChoice;
         do {
-            System.out.println("What's your drink size? 1. Small ($2.00) 2. Medium ($2.50) 3. Large ($3.00) 4. No more drinks");
-            sizeChoice = commandScanner.nextInt();
+            System.out.println(CYAN + "🥤 Quenching your thirst? Choose your drink size!" + RESET);
+            System.out.println("1. Small ($2.00) – Just a sip 🍹");
+            System.out.println("2. Medium ($2.50) – A refreshing gulp 🥤");
+            System.out.println("3. Large ($3.00) – Drink up! 🏆");
+            System.out.println("4. No more drinks – I'm good, thanks! 🙌");            sizeChoice = commandScanner.nextInt();
             commandScanner.nextLine();
 
             if (sizeChoice == 4) {
                 break;
             }
 
-            System.out.println("Available drink flavors:");
-            String[] availableFlavors = Drink.getAvailableFlavors();
+            System.out.println(CYAN + "🍹 Time to choose your flavor! What are you in the mood for?" + RESET);            String[] availableFlavors = Drink.getAvailableFlavors();
             for (int i = 0; i < availableFlavors.length; i++) {
                 System.out.println((i + 1) + ". " + availableFlavors[i]);
             }
 
-            System.out.println("Enter your drink flavor:");
-            String drinkFlavor = inputScanner.nextLine().trim().toUpperCase();
+            System.out.println(CYAN + "🌟 What's your drink flavor today? (Choose wisely! 😉)" + RESET);            String drinkFlavor = inputScanner.nextLine().trim().toUpperCase();
 
             boolean validFlavor = false;
             for (String flavor : availableFlavors) {
@@ -206,100 +248,94 @@ public class UserInterface {
             }
 
             if (!validFlavor) {
-                System.out.println("Invalid flavor. Please choose a valid option.");
+                System.out.println(RED + "Invalid flavor. Please choose a valid option." + RESET);
             } else {
                 try {
                     Drink drink = new Drink(drinkFlavor, Drink.Size.values()[sizeChoice - 1]);
                     drinks.add(drink);
                     totalPrice += drink.calculatePrice();
-                    System.out.println(drinkFlavor + " added. Price: $" + drink.calculatePrice());
-                } catch (IllegalArgumentException e) {
+                    System.out.println(CYAN + "🥤 " + drinkFlavor + " has been added to your order! Price: $" + drink.calculatePrice() + RESET);                } catch (IllegalArgumentException e) {
                     System.out.println("Error: Invalid flavor or size.");
                 }
             }
 
         } while (sizeChoice != 4);
     }
-
     private static void processAddChips() {
         String chipsChoice;
         int chipsCommand;
         int numberOfBags;
         do {
-            System.out.println("What chips do you want?");
-            for (Chips.Types type : Chips.Types.values()) {
+            System.out.println(CYAN + "🍟 What kind of chips would you like to enjoy today?" + RESET);            for (Chips.Types type : Chips.Types.values()) {
                 System.out.println(type);
             }
 
             chipsChoice = inputScanner.nextLine().trim().toUpperCase();
             Chips.Types selectedType = Chips.Types.valueOf(chipsChoice);
 
-            System.out.println("How many bags of chips do you want?");
-            numberOfBags = inputScanner.nextInt();
+            System.out.println(CYAN + "🥔 How many bags of crispy chips would you like to grab?" + RESET);            numberOfBags = inputScanner.nextInt();
 
             Chips chipsBag = new Chips(selectedType, numberOfBags);
             chips.add(chipsBag);
             totalPrice += chipsBag.calculatePrice();
-            System.out.println(chipsChoice + " chips added. Total: $" + chipsBag.calculatePrice());
-
-            System.out.println("Add another bag of chips? 1. Yes 2. No");
-            chipsCommand = commandScanner.nextInt();
+            System.out.println(CYAN + "Yay! " + chipsChoice + " chips added to your order. Crunchy goodness! Total: $" + chipsBag.calculatePrice() + RESET);
+            System.out.println(CYAN + "Would you like to add another bag of " + chipsChoice + " chips to your order? 1. Yes, please! 2. No, I'm good!" + RESET);            chipsCommand = commandScanner.nextInt();
             inputScanner.nextLine();
         } while (chipsCommand == 1);
     }
 
     private static void processFinishTheOrder() {
         totalPrice = 0.0;
-        System.out.println("What's your name?");
-        name = inputScanner.nextLine();
+        System.out.println(CYAN + "😊 What’s a good name for the order? We'd love to know!" + RESET);        name = inputScanner.nextLine();
 
-        System.out.println("Your order details: ");
+        System.out.println(GREEN + "🌟 Your order details: 🌟" + RESET);
         System.out.println("\n----------------------------");
-        System.out.println("Your sandwiches: ");
+        System.out.println(GREEN + "🍔 Your delicious sandwiches: 🍔" + RESET);
         int sandwichNumber = 1;
         List<Product> allProducts = new ArrayList<>();
 
         for (Sandwich sandwich : sandwiches) {
-            System.out.println("Sandwich " + sandwichNumber + ":");
-            System.out.println("Size: " + sandwich.getSize());
-            System.out.println("Bread: " + sandwich.getBreadType());
+            System.out.println(CYAN + "🥪 Sandwich " + sandwichNumber + ":" + RESET);
+            System.out.println("  📏 Size: " + sandwich.getSize());
+            System.out.println("  🍞 Bread: " + sandwich.getBreadType());
             List<Topping> toppings = sandwich.getToppings();
             if (toppings.isEmpty()) {
-                System.out.println("No toppings.");
+                System.out.println("  🌱 No toppings (Simple and fresh!)");
             } else {
+                System.out.println("  🌿 Toppings:");
                 for (Topping topping : toppings) {
-                    System.out.println("- " + topping.getName());
+                    System.out.println("    - " + topping.getName());
                 }
             }
-            System.out.println("Toasted: " + (sandwich.isToasted() ? "Yes" : "No"));
+            System.out.println("  🔥 Toasted? " + (sandwich.isToasted() ? "Yes, crispy and warm!" : "No, cool and fresh."));
             sandwichNumber++;
             allProducts.add(sandwich);
             totalPrice += sandwich.calculatePrice();
         }
 
-        System.out.println("\nYour drinks: ");
+        System.out.println(GREEN + "\n🥤 Your refreshing drinks: 🥤" + RESET);
         for (Drink drink : drinks) {
-            System.out.println(drink.getFlavor() + " (" + drink.getSize() + ") - $" + drink.calculatePrice());
+            System.out.println("  🍹 " + drink.getFlavor() + " (" + drink.getSize() + ") - $" + drink.calculatePrice());
             allProducts.add(drink);
             totalPrice += drink.calculatePrice();
         }
 
-        System.out.println("\nYour chips: ");
+        System.out.println(GREEN + "\n🍟 Your crispy chips: 🍟" + RESET);
         for (Chips chip : chips) {
-            System.out.println(chip.getType() + " - $" + chip.calculatePrice());
+            System.out.println("  🍽 " + chip.getType() + " - $" + chip.calculatePrice());
             allProducts.add(chip);
             totalPrice += chip.calculatePrice();
         }
 
-        System.out.println("\nTotal: $" + totalPrice);
+        System.out.println("\n🎉 Total: $" + totalPrice + " 🎉");
 
         order = new Order(name, allProducts);
 
         Receipt receipt = new Receipt(name, LocalDateTime.now(), allProducts, totalPrice);
         FileManager.saveReceipt(receipt);
 
-        System.out.println("Thank you for your order!");
-        System.exit(0);
+        System.out.println(GREEN + "🎉 Thank you for your order! 🎉" + RESET);
+        System.out.println(CYAN + "We hope you enjoy your meal! 🍽️ Come back soon for more deli-ciousness! 😋" + RESET);        System.exit(0);
     }
 
     private static Topping findToppingByName(String name) {
