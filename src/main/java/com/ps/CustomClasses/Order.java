@@ -14,12 +14,9 @@ public class Order {
         productPrices = new HashMap<>();
     }
 
-    public Order(String name, List<Sandwich> sandwiches, List<Chips> chips, List<Drink> drinks) {
+    public Order(String name, List<Product> products) {
         this();
-
-        products.addAll(sandwiches);
-        products.addAll(chips);
-        products.addAll(drinks);
+        this.products.addAll(products);
     }
 
     public void addProduct(Product product) {

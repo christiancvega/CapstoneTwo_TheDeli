@@ -62,11 +62,7 @@ public class PremiumTopping extends Topping {
     }
 
     public PremiumTopping(String name, String type) {
-        super(name, type, new HashMap<Sandwich.Size, Double>() {{
-            put(Sandwich.Size.SMALL, 5.50);
-            put(Sandwich.Size.MEDIUM, 7.00);
-            put(Sandwich.Size.LARGE, 8.50);
-        }});
+        super(name, type, toppingPrices.get(name));
     }
 
     @Override
@@ -80,6 +76,7 @@ public class PremiumTopping extends Topping {
 
     @Override
     public double calculatePrice() {
+
         return 0;
     }
 

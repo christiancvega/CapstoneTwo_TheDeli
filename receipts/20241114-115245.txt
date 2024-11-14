@@ -1,0 +1,24 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane
+Order Date and Time: 2024-11-14-11:52:45
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Bacon
+- American
+- Tomato
+Price: $6.0
+
+------------------------------------
+Total Price: $6.0
+====================================

@@ -1,0 +1,33 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane
+Order Date and Time: 2024-11-14-12:13:30
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+- American
+- Lettuce
+- Tomato
+- Onion
+- Mayo
+Price: $8.0
+
+COKE (MEDIUM)
+Price: $2.5
+
+JALAPENO
+Price: $1.5
+
+------------------------------------
+Total Price: $12.0
+====================================

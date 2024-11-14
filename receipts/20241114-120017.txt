@@ -1,0 +1,22 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane remover
+Order Date and Time: 2024-11-14-12:00:17
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Lettuce
+Price: $7.0
+
+------------------------------------
+Total Price: $7.0
+====================================

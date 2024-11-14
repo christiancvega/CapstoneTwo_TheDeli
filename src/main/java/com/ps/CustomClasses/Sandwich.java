@@ -1,8 +1,5 @@
 package com.ps.CustomClasses;
 
-import com.ps.CustomClasses.Product;
-import com.ps.CustomClasses.Topping;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,9 +68,11 @@ public class Sandwich extends Product {
     public double calculatePrice() {
         double basePrice = basePrices.getOrDefault(size, 0.0);
 
+
         for (Topping topping : toppings) {
-            basePrice += topping.calculatePrice();
+            basePrice += topping.calculatePrice(size);
         }
+
 
         if (extraMeat) {
             basePrice += extraMeatPrices.getOrDefault(size, 0.0);

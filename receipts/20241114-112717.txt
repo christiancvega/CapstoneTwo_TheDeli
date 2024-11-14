@@ -1,0 +1,18 @@
+Customer Name: chris
+Order Date and Time: 2024-11-14-11:27:17
+
+Items:
+Sandwich:
+Size: MEDIUM
+Bread Type: WHEAT
+Toasted: Yes
+Toppings:
+- Steak
+- American
+- Lettuce
+- Tomato
+- Onion
+Price: $8.6
+
+
+Total Price: $8.6

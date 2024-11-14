@@ -1,0 +1,14 @@
+Customer Name: jake
+Order Date and Time: 20241114-114653
+
+Items:
+Sandwich:
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+Price: $6.0
+
+
+Total Price: $6.0

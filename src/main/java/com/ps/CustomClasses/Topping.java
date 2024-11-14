@@ -37,11 +37,6 @@ public abstract class Topping extends Product {
         this.sizePrices = sizePrices;
     }
 
-    @Override
-    public double calculatePrice() {
-        return 0.0;
-    }
-
     public double calculatePrice(Sandwich.Size size) {
         return sizePrices.getOrDefault(size, 0.0);
     }

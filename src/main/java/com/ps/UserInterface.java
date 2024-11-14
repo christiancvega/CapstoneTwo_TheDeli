@@ -5,10 +5,10 @@ import com.ps.CustomClasses.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 
 public class UserInterface {
+
     private static Scanner commandScanner = new Scanner(System.in);
     private static Scanner inputScanner = new Scanner(System.in);
     private static List<Sandwich> sandwiches = new ArrayList<>();
@@ -25,7 +25,9 @@ public class UserInterface {
     public static void showMainMenu() {
         int mainMenuCommand;
         do {
-            System.out.println("Welcome to the deli!");
+            System.out.println("=======================================");
+            System.out.println("          Welcome to Deli-cious!       ");
+            System.out.println("=======================================");
             System.out.println("Would you like to place an order?");
             System.out.println("1. Yes");
             System.out.println("2. No");
@@ -46,7 +48,9 @@ public class UserInterface {
     private static void processStartAnOrder() {
         int startCommand = 0;
         do {
-            System.out.println("What would you like to order?");
+            System.out.println("\n=======================================");
+            System.out.println("      What would you like to order?");
+            System.out.println("=======================================");
             System.out.println("1. Add a Sandwich");
             System.out.println("2. Add a Drink");
             System.out.println("3. Add Chips");
@@ -80,7 +84,6 @@ public class UserInterface {
             inputScanner.nextLine();
 
             Sandwich.Size sandwichSize = null;
-
             if (size == 4) {
                 sandwichSize = Sandwich.Size.SMALL;
             } else if (size == 8) {
@@ -130,9 +133,16 @@ public class UserInterface {
             }
 
             System.out.println("\n----------------------------");
+            System.out.println("Sauces:");
+            for (Topping topping : RegularTopping.getRegularToppings()) {
+                if (topping.getType().equals("Sauce")) {
+                    System.out.println(topping.getName());
+                }
+            }
+
+            System.out.println("\n----------------------------");
             System.out.println("Enter your toppings (separate by commas):");
             String inputToppings = inputScanner.nextLine().toLowerCase();
-
 
             String[] selectedToppings = inputToppings.split(",");
             for (String toppingName : selectedToppings) {
@@ -165,14 +175,6 @@ public class UserInterface {
             sandwichCommand = inputScanner.nextInt();
             inputScanner.nextLine();
         } while (sandwichCommand != 2);
-    }
-
-    private static void printToppingList(List<Topping> toppings, String type) {
-        for (Topping topping : toppings) {
-            if (topping.getType().equalsIgnoreCase(type)) {
-                System.out.println("- " + topping.getName());
-            }
-        }
     }
 
     private static void processAddADrink() {
@@ -242,6 +244,7 @@ public class UserInterface {
 
             System.out.println("Add another bag of chips? 1. Yes 2. No");
             chipsCommand = commandScanner.nextInt();
+            inputScanner.nextLine();
         } while (chipsCommand == 1);
     }
 
@@ -251,8 +254,11 @@ public class UserInterface {
         name = inputScanner.nextLine();
 
         System.out.println("Your order details: ");
+        System.out.println("\n----------------------------");
         System.out.println("Your sandwiches: ");
         int sandwichNumber = 1;
+        List<Product> allProducts = new ArrayList<>();
+
         for (Sandwich sandwich : sandwiches) {
             System.out.println("Sandwich " + sandwichNumber + ":");
             System.out.println("Size: " + sandwich.getSize());
@@ -267,21 +273,29 @@ public class UserInterface {
             }
             System.out.println("Toasted: " + (sandwich.isToasted() ? "Yes" : "No"));
             sandwichNumber++;
+            allProducts.add(sandwich);
             totalPrice += sandwich.calculatePrice();
         }
 
+        System.out.println("\nYour drinks: ");
         for (Drink drink : drinks) {
+            System.out.println(drink.getFlavor() + " (" + drink.getSize() + ") - $" + drink.calculatePrice());
+            allProducts.add(drink);
             totalPrice += drink.calculatePrice();
         }
 
+        System.out.println("\nYour chips: ");
         for (Chips chip : chips) {
+            System.out.println(chip.getType() + " - $" + chip.calculatePrice());
+            allProducts.add(chip);
             totalPrice += chip.calculatePrice();
         }
 
-        System.out.println("Total: $" + totalPrice);
+        System.out.println("\nTotal: $" + totalPrice);
 
-        order = new Order(name, sandwiches, chips, drinks);
-        Receipt receipt = new Receipt(name, LocalDateTime.now(), sandwiches, drinks, chips, totalPrice);
+        order = new Order(name, allProducts);
+
+        Receipt receipt = new Receipt(name, LocalDateTime.now(), allProducts, totalPrice);
         FileManager.saveReceipt(receipt);
 
         System.out.println("Thank you for your order!");
@@ -289,9 +303,7 @@ public class UserInterface {
     }
 
     private static Topping findToppingByName(String name) {
-
         String normalizedToppingName = name.trim().toLowerCase();
-
 
         for (PremiumTopping premiumTopping : PremiumTopping.getPremiumToppings()) {
             if (premiumTopping.getName().toLowerCase().equals(normalizedToppingName)) {
@@ -305,8 +317,6 @@ public class UserInterface {
             }
         }
 
-
         return null;
     }
 }
-

@@ -1,0 +1,14 @@
+Customer Name: jane
+Order Date and Time: 2024-11-14-11:50:20
+
+Items:
+Sandwich:
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Chicken
+Price: $5.5
+
+
+Total Price: $5.5
