@@ -1,12 +1,17 @@
 package com.ps.CustomClasses;
 
+import com.ps.CustomClasses.Product;
+import com.ps.CustomClasses.Topping;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Sandwich extends Product {
     private List<Topping> toppings;
     private boolean isToasted;
-    private boolean extraCheese;
     private boolean extraMeat;
+    private boolean extraCheese;
     private Size size;
     private BreadTypes breadType;
 
@@ -18,51 +23,66 @@ public class Sandwich extends Product {
         SMALL, MEDIUM, LARGE
     }
 
-    public Sandwich(String name, Size size, BreadTypes breadType, List<Topping> toppings, boolean isToasted, boolean extraMeat, boolean extraCheese) {
-        super(name, 0);
-        this.size = size;
-        this.breadType = breadType;
+    private static final HashMap<Size, Double> basePrices = new HashMap<Size, Double>() {{
+        put(Size.SMALL, 5.50);
+        put(Size.MEDIUM, 7.00);
+        put(Size.LARGE, 8.50);
+    }};
+
+    private static final HashMap<Size, Double> extraMeatPrices = new HashMap<Size, Double>() {{
+        put(Size.SMALL, 0.50);
+        put(Size.MEDIUM, 1.00);
+        put(Size.LARGE, 1.50);
+    }};
+
+    private static final HashMap<Size, Double> extraCheesePrices = new HashMap<Size, Double>() {{
+        put(Size.SMALL, 0.30);
+        put(Size.MEDIUM, 0.60);
+        put(Size.LARGE, 0.90);
+    }};
+
+    public Sandwich(List<Topping> toppings, boolean extraMeat, boolean extraCheese, Size size, BreadTypes breadType, boolean isToasted) {
+        super("Sandwich", 0);
         this.toppings = toppings;
-        this.isToasted = isToasted;
         this.extraMeat = extraMeat;
         this.extraCheese = extraCheese;
+        this.size = size;
+        this.breadType = breadType;
+        this.isToasted = isToasted;
     }
 
     public Size getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
+    public BreadTypes getBreadType() {
+        return breadType;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
     }
 
     @Override
     public double calculatePrice() {
-        double totalPrice = super.getPriceValue();
+        double basePrice = basePrices.getOrDefault(size, 0.0);
 
-        switch (size) {
-            case SMALL:
-                totalPrice = 5.50;
-                break;
-            case MEDIUM:
-                totalPrice = 7.00;
-                break;
-            case LARGE:
-                totalPrice = 8.50;
-                break;
+        for (Topping topping : toppings) {
+            basePrice += topping.calculatePrice();
         }
 
         if (extraMeat) {
-            totalPrice += (size == Size.SMALL) ? 0.50 : (size == Size.MEDIUM) ? 1.00 : 1.50;
-        }
-        if (extraCheese) {
-            totalPrice += (size == Size.SMALL) ? 0.30 : (size == Size.MEDIUM) ? 0.60 : 0.90;
-        }
-        for (Topping topping : toppings) {
-            totalPrice += topping.calculatePrice();
+            basePrice += extraMeatPrices.getOrDefault(size, 0.0);
         }
 
-        return totalPrice;
+        if (extraCheese) {
+            basePrice += extraCheesePrices.getOrDefault(size, 0.0);
+        }
+
+        return basePrice;
     }
 }
-
