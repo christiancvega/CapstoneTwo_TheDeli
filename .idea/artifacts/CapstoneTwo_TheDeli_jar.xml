@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CapstoneTwo_TheDeli:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CapstoneTwo_TheDeli_jar</output-path>
+    <root id="archive" name="CapstoneTwo_TheDeli.jar">
+      <element id="module-output" name="CapstoneTwo_TheDeli" />
+    </root>
+  </artifact>
+</component>

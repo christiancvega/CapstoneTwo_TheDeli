@@ -1,0 +1,24 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: chris
+Order Date and Time: 2024-11-14-15:59:04
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: RYE
+Toasted: Yes
+Toppings:
+- Bacon
+- Lettuce
+- Mayo
+Price: $9.6
+
+------------------------------------
+Total Price: $9.6
+====================================

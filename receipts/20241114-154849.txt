@@ -1,0 +1,26 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: chris
+Order Date and Time: 2024-11-14-15:48:49
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+- American
+- Lettuce
+- Tomato
+- Jalapenos
+Price: $11.5
+
+------------------------------------
+Total Price: $11.5
+====================================

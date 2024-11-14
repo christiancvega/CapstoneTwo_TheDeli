@@ -1,0 +1,25 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: john
+Order Date and Time: 2024-11-14-15:55:34
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Bacon
+- Lettuce
+- Tomato
+- Onion
+Price: $9.0
+
+------------------------------------
+Total Price: $9.0
+====================================

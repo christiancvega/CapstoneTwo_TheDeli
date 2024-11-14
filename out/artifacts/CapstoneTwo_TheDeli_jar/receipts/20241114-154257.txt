@@ -1,0 +1,26 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane remover
+Order Date and Time: 2024-11-14-15:42:57
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+- American
+- Lettuce
+- Tomato
+- Onion
+Price: $11.5
+
+------------------------------------
+Total Price: $11.5
+====================================

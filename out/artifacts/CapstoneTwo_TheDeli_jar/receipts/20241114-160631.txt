@@ -1,0 +1,32 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane remover 
+Order Date and Time: 2024-11-14-16:06:31
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Bacon
+- American
+- Lettuce
+- Tomato
+- Onion
+Price: $11.5
+
+COKE (LARGE)
+Price: $3.0
+
+JALAPENO
+Price: $1.5
+
+------------------------------------
+Total Price: $16.0
+====================================
