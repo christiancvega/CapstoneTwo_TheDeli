@@ -1,0 +1,72 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: khang
+Order Date and Time: 2024-11-14-21:59:19
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: LARGE
+Bread Type: RYE
+Toasted: Yes
+Toppings:
+- Steak
+- Ham
+- Salami
+- Chicken
+- Roast Beef
+- Provolone
+- Lettuce
+- Tomato
+- Onion
+- Jalapenos
+- Cucumbers
+- Guacamole
+- Mushrooms
+- Mayo
+- Thousand islands
+- Steak
+- Lettuce
+- Tomato
+- Mayo
+Price: $30.25
+
+Sandwich:
+Size: LARGE
+Bread Type: WHITE
+Toasted: No
+Toppings:
+- Steak
+- Ham
+- Salami
+- Chicken
+- Roast Beef
+- Provolone
+- Lettuce
+- Tomato
+- Onion
+- Jalapenos
+- Cucumbers
+- Guacamole
+- Mushrooms
+- Mayo
+- Thousand islands
+- Steak
+- Lettuce
+- Tomato
+- Mayo
+Price: $28.75
+
+COKE (LARGE)
+Price: $3.0
+
+BBQ
+Price: $1.5
+
+------------------------------------
+Total Price: $63.5
+====================================

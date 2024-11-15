@@ -34,7 +34,7 @@ public class UserInterface {
     public static void showMainMenu() {
         int mainMenuCommand;
         do {
-clearScreen();
+            clearScreen();
             System.out.println(CYAN + "==============================================");
             System.out.println("          🥪    Welcome to Deli-cious!   🥪  ");
             System.out.println("==============================================");
@@ -89,7 +89,7 @@ clearScreen();
 
     private static void processAddASandwich() {
         int sandwichCommand = 0;
-        List<Topping> toppingChoices = new ArrayList<>();
+
         do {
             clearScreen();
             System.out.println(CYAN + "\n=============================================");
@@ -114,23 +114,28 @@ clearScreen();
                 System.out.println(BLUE + "Invalid size. Please select 4, 8, or 12 inches." + RESET);
                 continue;
             }
-clearScreen();
+
+            List<Topping> toppingChoices = new ArrayList<>();
+
+            clearScreen();
             System.out.println(CYAN + "\n=============================================");
             System.out.println("   🌾 What kind of bread would you like today? 🍞");
             System.out.println("=============================================" + RESET);
             System.out.println(YELLOW + "    1. 🍞 White - Classic choice!");
             System.out.println("    2. 🌾 Wheat - A healthy option!");
             System.out.println("    3. 🌿 Rye - For the adventurous eater!");
-            System.out.println("    4. 🌯 Wrap - For something light and fresh!");            String breadType = inputScanner.nextLine().toUpperCase();
-clearScreen();
+            System.out.println("    4. 🌯 Wrap - For something light and fresh!");
+            String breadType = inputScanner.nextLine().toUpperCase();
+            clearScreen();
             System.out.println(CYAN + "\n===============================================");
             System.out.println("   🔥 Would you like your sandwich toasted? 🥪");
             System.out.println("===============================================" + RESET);
             System.out.println(YELLOW + "    1. Yes, make it crispy! 🔥");
-            System.out.println("    2. No, keep it soft and fresh! 🍞");            int toastedChoiceInput = inputScanner.nextInt();
+            System.out.println("    2. No, keep it soft and fresh! 🍞");
+            int toastedChoiceInput = inputScanner.nextInt();
             boolean toastedChoice = toastedChoiceInput == 1;
             inputScanner.nextLine();
-clearScreen();
+            clearScreen();
             System.out.println("\n===========================================");
             System.out.println(CYAN + "🥗 What toppings would you like to add? 🧀");
             System.out.println("===========================================" + RESET);
@@ -186,7 +191,7 @@ clearScreen();
                     System.out.println(BLUE + "Invalid topping: " + toppingName + RESET);
                 }
             }
-clearScreen();
+            clearScreen();
             System.out.println("\n=====================================");
             System.out.println(CYAN + "🍖 Craving extra meat today? 🥩");
             System.out.println("=====================================" + RESET);
@@ -195,7 +200,7 @@ clearScreen();
             System.out.println("=====================================");
             boolean extraMeatChoice = inputScanner.nextInt() == 1;
             inputScanner.nextLine();
-clearScreen();
+            clearScreen();
             System.out.println("\n=====================================");
             System.out.println(CYAN + "🧀 Time for some extra cheese? 🧀");
             System.out.println("=====================================" + RESET);
@@ -207,11 +212,11 @@ clearScreen();
 
             Sandwich sandwich = new Sandwich(toppingChoices, extraMeatChoice, extraCheeseChoice, sandwichSize, Sandwich.BreadTypes.valueOf(breadType), toastedChoice);
             sandwiches.add(sandwich);
-clearScreen();
+
             totalPrice += sandwich.calculatePrice();
             System.out.println(GREEN + "🍞 Your delicious sandwich has been added! 🥪");
-            System.out.println("Total for this one: $" + totalPrice + RESET);
-clearScreen();
+            System.out.println("Total after this one: $" + totalPrice + RESET);
+            clearScreen();
             System.out.println("\n----------------------------");
             System.out.println(GREEN + "🍽️ Hungry for more? Add another tasty sandwich!" + RESET);
             System.out.println("1. Yes, please! 😋");
@@ -229,19 +234,22 @@ clearScreen();
             System.out.println("1. Small ($2.00) – Just a sip 🍹");
             System.out.println("2. Medium ($2.50) – A refreshing gulp 🥤");
             System.out.println("3. Large ($3.00) – Drink up! 🏆");
-            System.out.println("4. No more drinks – I'm good, thanks! 🙌");            sizeChoice = commandScanner.nextInt();
+            System.out.println("4. No more drinks – I'm good, thanks! 🙌");
+            sizeChoice = commandScanner.nextInt();
             commandScanner.nextLine();
 
             if (sizeChoice == 4) {
                 break;
             }
-clearScreen();
-            System.out.println(CYAN + "🍹 Time to choose your flavor! What are you in the mood for?" + RESET);            String[] availableFlavors = Drink.getAvailableFlavors();
+            clearScreen();
+            System.out.println(CYAN + "🍹 Time to choose your flavor! What are you in the mood for?" + RESET);
+            String[] availableFlavors = Drink.getAvailableFlavors();
             for (int i = 0; i < availableFlavors.length; i++) {
                 System.out.println((i + 1) + ". " + availableFlavors[i]);
             }
 
-            System.out.println(CYAN + "🌟 What's your drink flavor today? (Choose wisely! 😉)" + RESET);            String drinkFlavor = inputScanner.nextLine().trim().toUpperCase();
+            System.out.println(CYAN + "🌟 What's your drink flavor today? (Choose wisely! 😉)" + RESET);
+            String drinkFlavor = inputScanner.nextLine().trim().toUpperCase();
 
             boolean validFlavor = false;
             for (String flavor : availableFlavors) {
@@ -258,33 +266,42 @@ clearScreen();
                     Drink drink = new Drink(drinkFlavor, Drink.Size.values()[sizeChoice - 1]);
                     drinks.add(drink);
                     totalPrice += drink.calculatePrice();
-                    System.out.println(CYAN + "🥤 " + drinkFlavor + " has been added to your order! Price: $" + drink.calculatePrice() + RESET);                } catch (IllegalArgumentException e) {
+                    System.out.println(CYAN + "🥤 " + drinkFlavor + " has been added to your order! Price: $" + drink.calculatePrice() + RESET);
+                } catch (IllegalArgumentException e) {
                     System.out.println("Error: Invalid flavor or size.");
                 }
             }
 
         } while (sizeChoice != 4);
     }
+
     private static void processAddChips() {
         String chipsChoice;
         int chipsCommand;
         int numberOfBags;
         do {
             clearScreen();
-            System.out.println(CYAN + "🍟 What kind of chips would you like to enjoy today?" + RESET);            for (Chips.Types type : Chips.Types.values()) {
+            System.out.println(CYAN + "🍟 What kind of chips would you like to enjoy today?" + RESET);
+            for (Chips.Types type : Chips.Types.values()) {
                 System.out.println(type);
             }
 
             chipsChoice = inputScanner.nextLine().trim().toUpperCase();
             Chips.Types selectedType = Chips.Types.valueOf(chipsChoice);
 
-            System.out.println(CYAN + "🥔 How many bags of crispy chips would you like to grab?" + RESET);            numberOfBags = inputScanner.nextInt();
+            System.out.println(CYAN + "🥔 How many bags of crispy chips would you like to grab?" + RESET);
+            numberOfBags = inputScanner.nextInt();
 
             Chips chipsBag = new Chips(selectedType, numberOfBags);
             chips.add(chipsBag);
-            totalPrice += chipsBag.calculatePrice();
-            System.out.println(CYAN + "Yay! " + chipsChoice + " chips added to your order. Crunchy goodness! Total: $" + chipsBag.calculatePrice() + RESET);
-            System.out.println(CYAN + "Would you like to add another bag of " + chipsChoice + " chips to your order? 1. Yes, please! 2. No, I'm good!" + RESET);            chipsCommand = commandScanner.nextInt();
+
+            double chipsTotal = chipsBag.calculatePrice() * numberOfBags;
+            totalPrice += chipsTotal;
+
+            System.out.println(CYAN + "Yay! " + chipsChoice + " chips added to your order. Crunchy goodness! Total for " + numberOfBags + " bags: $" + chipsTotal + RESET);
+
+            System.out.println(CYAN + "Would you like to add another bag of " + chipsChoice + " chips to your order? 1. Yes, please! 2. No, I'm good!" + RESET);
+            chipsCommand = commandScanner.nextInt();
             inputScanner.nextLine();
         } while (chipsCommand == 1);
     }
@@ -293,7 +310,7 @@ clearScreen();
         totalPrice = 0.0;
         System.out.println(CYAN + "😊 What’s a good name for the order? We'd love to know!" + RESET);
         name = inputScanner.nextLine();
-clearScreen();
+        clearScreen();
         System.out.println(GREEN + "🌟 Your order details: 🌟" + RESET);
         System.out.println("\n----------------------------");
         System.out.println(GREEN + "🍔 Your delicious sandwiches: 🍔" + RESET);
@@ -376,6 +393,7 @@ clearScreen();
 
         return null;
     }
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

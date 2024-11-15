@@ -1,0 +1,42 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane remover
+Order Date and Time: 2024-11-14-22:02:29
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+- Lettuce
+- Mayo
+- Ham
+- Tomato
+- Onion
+- Ranch
+Price: $7.5
+
+Sandwich:
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Steak
+- Lettuce
+- Mayo
+- Ham
+- Tomato
+- Onion
+- Ranch
+Price: $11.0
+
+------------------------------------
+Total Price: $18.5
+====================================

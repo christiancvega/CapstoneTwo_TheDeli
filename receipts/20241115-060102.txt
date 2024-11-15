@@ -1,0 +1,36 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane remover
+Order Date and Time: 2024-11-15-06:01:02
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: MEDIUM
+Bread Type: RYE
+Toasted: Yes
+Toppings:
+- Bacon
+- Lettuce
+- Tomato
+- Ranch
+Price: $10.0
+
+Sandwich:
+Size: LARGE
+Bread Type: WHITE
+Toasted: No
+Toppings:
+- Ham
+- Provolone
+- Pickles
+- Ketchup
+Price: $13.75
+
+------------------------------------
+Total Price: $23.75
+====================================
