@@ -56,7 +56,7 @@ The order output provides a detailed summary of the customer’s selections, inc
 In this piece of code, I used a stack of HashMaps to store the prices of different premium toppings for sandwiches based on their size. The outer HashMap has the topping name (like “Steak”, “Ham”, etc.) as the key, and each key maps to another HashMap that associates each Sandwich.Size (Small, Medium, Large) with its respective price. This structure makes it easy to manage the prices of each topping for various sandwich sizes, and allows for dynamic price retrieval based on both the topping and the sandwich size chosen by the customer.
 ## Diagrams used to develop the project
 
-![delidiagram.png](assets/delidiagram.png)
+![DELIDIAGRAM.png](assets/DELIDIAGRAM.png)
 
 ![newdelidiagram.png](assets/newdelidiagram.png)
 
