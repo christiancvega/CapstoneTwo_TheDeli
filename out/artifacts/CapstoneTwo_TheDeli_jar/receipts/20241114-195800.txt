@@ -1,0 +1,32 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: jane
+Order Date and Time: 2024-11-14-19:58:00
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: LARGE
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Bacon
+- American
+- Lettuce
+- Onion
+- Mayo
+Price: $16.15
+
+COKE (LARGE)
+Price: $3.0
+
+JALAPENO
+Price: $1.5
+
+------------------------------------
+Total Price: $20.65
+====================================
