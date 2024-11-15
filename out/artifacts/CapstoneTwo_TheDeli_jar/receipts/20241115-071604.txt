@@ -1,0 +1,46 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: christian
+Order Date and Time: 2024-11-15-07:16:04
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: LARGE
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+- Bacon
+- Provolone
+- Lettuce
+- Onion
+- Tomato
+Price: $15.25
+
+Sandwich:
+Size: MEDIUM
+Bread Type: RYE
+Toasted: No
+Toppings:
+- Ham
+- Lettuce
+- Ketchup
+- Pickles
+Price: $9.0
+
+COKE (LARGE)
+Price: $3.0
+
+SPRITE (SMALL)
+Price: $2.0
+
+JALAPENO
+Price: $1.5
+
+------------------------------------
+Total Price: $30.75
+====================================

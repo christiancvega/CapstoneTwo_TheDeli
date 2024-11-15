@@ -212,11 +212,10 @@ public class UserInterface {
 
             Sandwich sandwich = new Sandwich(toppingChoices, extraMeatChoice, extraCheeseChoice, sandwichSize, Sandwich.BreadTypes.valueOf(breadType), toastedChoice);
             sandwiches.add(sandwich);
-
+clearScreen();
             totalPrice += sandwich.calculatePrice();
             System.out.println(GREEN + "🍞 Your delicious sandwich has been added! 🥪");
             System.out.println("Total after this one: $" + totalPrice + RESET);
-            clearScreen();
             System.out.println("\n----------------------------");
             System.out.println(GREEN + "🍽️ Hungry for more? Add another tasty sandwich!" + RESET);
             System.out.println("1. Yes, please! 😋");

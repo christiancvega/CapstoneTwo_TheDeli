@@ -1,0 +1,25 @@
+====================================
+        Deli Order Receipt        
+====================================
+
+Customer Name: nara
+Order Date and Time: 2024-11-15-07:19:02
+
+------------------------------------
+Items:
+------------------------------------
+
+Sandwich:
+Size: SMALL
+Bread Type: WHEAT
+Toasted: Yes
+Toppings:
+- Bacon
+- Lettuce
+- Tomato
+- Onion
+Price: $6.5
+
+------------------------------------
+Total Price: $6.5
+====================================
